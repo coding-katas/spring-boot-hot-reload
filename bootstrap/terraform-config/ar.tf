@@ -20,7 +20,7 @@ resource "google_artifact_registry_repository" "artifact-registry" {
 
   location      = var.region
   repository_id = "web-app"
-  description   = "Image registry for tutorial web app"
+  description   = "Image registry for web app"
   format        = "DOCKER"
 }
 
@@ -30,7 +30,7 @@ resource "google_artifact_registry_repository" "artifact-registry-profiles" {
 
   location      = var.region
   repository_id = "web-app-profiles"
-  description   = "Image registry for tutorial web app with Skaffold profiles"
+  description   = "Image registry for web app with Skaffold profiles"
   format        = "DOCKER"
 }
 
@@ -40,6 +40,6 @@ resource "google_artifact_registry_repository" "artifact-registry-exec-envs" {
 
   location      = var.region
   repository_id = "web-app-exec-envs"
-  description   = "Image registry for tutorial web app with custom execution environments"
+  description   = "Image registry for web app with custom execution environments"
   format        = "DOCKER"
 }
