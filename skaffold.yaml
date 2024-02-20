@@ -1,0 +1,25 @@
+apiVersion: skaffold/v2beta27
+kind: Config
+metadata:
+  name: complete
+build:
+  artifacts:
+  - image: myspringbootapp
+    jib:
+      project: com.example:spring-boot-complete
+      type: maven
+      args: 
+      - --no-transfer-progress
+      - -Psync
+      - -DskipTests
+      fromImage: gcr.io/distroless/java17-debian11:debug
+    sync:
+      auto: true
+deploy:
+  kubectl:
+    manifests:
+    - deployment.yaml
+portForward:
+- resourceType: service
+  resourceName: myspringbootapp
+  port: 8080
